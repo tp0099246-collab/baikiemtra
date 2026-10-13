@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinamilk - Liên hệ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- ===== HEADER ===== -->
+        <header>
+            <a href="index.html" class="logo"><img src="img/logo.png" alt="Vinamilk"></a>
+
+            <nav class="menu">
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="#">Tin tức</a></li>
+                    <li><a href="#">Thể thao</a></li>
+                    <li><a href="#">Văn hóa</a></li>
+                    <li><a href="#">Xã hội</a></li>
+                    <li><a href="lienhe.html" class="active">Liên hệ</a></li>
+                </ul>
+            </nav>
+
+            <form class="search" action="#" onsubmit="return validateSearch()">
+                <input type="text" id="keyword" name="keyword" placeholder="Nhập từ khóa...">
+                <button type="submit">TÌM</button>
+            </form>
+        </header>
+
+        <!-- ===== CONTENT: FORM LIÊN HỆ ===== -->
+        <section class="content">
+            <h2>LIÊN HỆ VỚI CHÚNG TÔI</h2>
+
+            <div class="box">
+                <form class="contact-form" id="frmLienHe" novalidate>
+                    <div class="form-group">
+                        <label for="hoten">Họ và tên (*)</label>
+                        <input type="text" id="hoten" class="form-control">
+                        <span class="error" id="errHoten"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email (*)</label>
+                        <input type="email" id="email" class="form-control">
+                        <span class="error" id="errEmail"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sdt">Số điện thoại (*)</label>
+                        <input type="text" id="sdt" class="form-control">
+                        <span class="error" id="errSdt"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="noidung">Nội dung (*)</label>
+                        <textarea id="noidung" rows="5" class="form-control"></textarea>
+                        <span class="error" id="errNoidung"></span>
+                    </div>
+
+                    <button type="submit" class="btn">GỬI LIÊN HỆ</button>
+                    <button type="reset" class="btn">NHẬP LẠI</button>
+                    <p class="success" id="thongbao"></p>
+                </form>
+            </div>
+        </section>
+
+        <!-- ===== FOOTER ===== -->
+        <footer>TÊN SINH VIÊN</footer>
+    </div>
+
+    <script>
+        // Validate form tìm kiếm (giống trang chủ)
+        function validateSearch() {
+            var input = document.getElementById("keyword");
+            var keyword = input.value.trim();
+            if (keyword === "") {
+                alert("Vui lòng nhập từ khóa cần tìm!");
+                input.focus();
+                return false;
+            }
+            if (keyword.length < 2) {
+                alert("Từ khóa phải có ít nhất 2 ký tự!");
+                input.focus();
+                return false;
+            }
+            return true;
+        }
+
+        // Hiển thị / xóa lỗi cho 1 ô
+        function setError(inputId, errId, message) {
+            document.getElementById(errId).innerText = message;
+            var input = document.getElementById(inputId);
+            if (message) input.classList.add("invalid");
+            else input.classList.remove("invalid");
+            return message === "";
+        }
+
+        // Validate form liên hệ
+        document.getElementById("frmLienHe").onsubmit = function (e) {
+            e.preventDefault();
+
+            var hoten = document.getElementById("hoten").value.trim();
+            var email = document.getElementById("email").value.trim();
+            var sdt = document.getElementById("sdt").value.trim();
+            var noidung = document.getElementById("noidung").value.trim();
+
+            var emailRegex = /^[\w.+-]+@[\w-]+(\.[\w-]+)+$/;
+            var sdtRegex = /^0\d{9}$/;
+
+            var ok = true;
+
+            // Họ tên: bắt buộc, ít nhất 3 ký tự
+            if (hoten === "") ok = setError("hoten", "errHoten", "Vui lòng nhập họ và tên") && ok;
+            else if (hoten.length < 3) ok = setError("hoten", "errHoten", "Họ tên phải có ít nhất 3 ký tự") && ok;
+            else setError("hoten", "errHoten", "");
+
+            // Email: bắt buộc, đúng định dạng
+            if (email === "") ok = setError("email", "errEmail", "Vui lòng nhập email") && ok;
+            else if (!emailRegex.test(email)) ok = setError("email", "errEmail", "Email không đúng định dạng (vd: abc@gmail.com)") && ok;
+            else setError("email", "errEmail", "");
+
+            // Số điện thoại: bắt buộc, 10 số, bắt đầu bằng 0
+            if (sdt === "") ok = setError("sdt", "errSdt", "Vui lòng nhập số điện thoại") && ok;
+            else if (!sdtRegex.test(sdt)) ok = setError("sdt", "errSdt", "Số điện thoại gồm 10 chữ số và bắt đầu bằng 0") && ok;
+            else setError("sdt", "errSdt", "");
+
+            // Nội dung: bắt buộc, ít nhất 10 ký tự
+            if (noidung === "") ok = setError("noidung", "errNoidung", "Vui lòng nhập nội dung") && ok;
+            else if (noidung.length < 10) ok = setError("noidung", "errNoidung", "Nội dung phải có ít nhất 10 ký tự") && ok;
+            else setError("noidung", "errNoidung", "");
+
+            var thongbao = document.getElementById("thongbao");
+            if (ok) {
+                thongbao.innerText = "Gửi liên hệ thành công! Cảm ơn " + hoten + ".";
+                this.reset();
+            } else {
+                thongbao.innerText = "";
+            }
+        };
+
+        // Nhấn "Nhập lại" thì xóa hết thông báo lỗi
+        document.getElementById("frmLienHe").onreset = function () {
+            var errs = document.querySelectorAll(".error");
+            for (var i = 0; i < errs.length; i++) errs[i].innerText = "";
+            var inputs = document.querySelectorAll(".form-control");
+            for (var j = 0; j < inputs.length; j++) inputs[j].classList.remove("invalid");
+        };
+    </script>
+</body>
+</html>

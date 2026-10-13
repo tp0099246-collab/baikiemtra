@@ -1,0 +1,281 @@
+/* ===== ĐỀ 02 - WEB1013 - VINAMILK ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", Arial, sans-serif;
+    background-color: #ffffff;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Khung trang rộng 1440px theo thiết kế */
+.container {
+    width: 1440px;
+    margin: 0 auto;
+}
+
+/* ===== HEADER ===== */
+header {
+    height: 129px;
+    background-color: #4e8849;
+    display: flex;
+    align-items: center;
+    padding: 0 29px 0 22px;
+}
+
+.logo img {
+    display: block;
+    width: 173px;
+}
+
+/* ===== MENU ===== */
+.menu {
+    margin-left: 80px;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+}
+
+.menu ul li a {
+    display: block;
+    padding: 0 12px;
+    color: #ffffff;
+    font-size: 23px;
+    font-weight: 700;
+    line-height: 40px;
+}
+
+.menu ul li a.active {
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-thickness: 2px;
+}
+
+/* Hover menu */
+.menu ul li a:hover {
+    color: #ffeb3b;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-thickness: 2px;
+}
+
+/* ===== FORM TÌM KIẾM ===== */
+.search {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.search input {
+    width: 250px;
+    height: 30px;
+    padding: 0 8px;
+    border: 1px solid #cccccc;
+    outline: none;
+    font-family: inherit;
+    font-size: 15px;
+}
+
+.search input:focus {
+    border-color: #ffeb3b;
+}
+
+.search button {
+    width: 100px;
+    height: 30px;
+    margin-left: 13px;
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #cccccc;
+    font-family: inherit;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.search button:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* ===== BANNER ===== */
+.banner img {
+    display: block;
+    width: 1440px;
+    height: 600px;
+}
+
+/* ===== CONTENT ===== */
+.content {
+    padding: 31px 30px 50px 33px;
+}
+
+.content h2 {
+    color: #286376;
+    font-size: 29px;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.box {
+    background-color: #f4ecaa;
+    padding: 41px 23px 55px 22px;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 37px;
+}
+
+.row + .row {
+    margin-top: 47px;
+}
+
+/* Ảnh: viền trong suốt sẵn để khi hover không bị giật layout */
+.content img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    border: 1px dashed transparent;
+}
+
+/* Hover ảnh: viền 1px nét đứt màu đỏ #F00 */
+.content img:hover {
+    border: 1px dashed #F00;
+}
+
+.row-1 img {
+    height: 388px;
+}
+
+.row-2 img {
+    height: 366px;
+}
+
+/* Tiêu đề tin có link + hover */
+.news-title a {
+    color: #203181;
+    font-weight: 700;
+}
+
+.news-title a:hover {
+    color: #e53935;
+    text-decoration: underline;
+}
+
+.row-1 .news-title {
+    font-size: 35px;
+    line-height: 52px;
+    margin-top: 2px;
+    margin-bottom: 40px;
+}
+
+.row-1 .news-text {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 44px;
+    color: #000000;
+}
+
+.row-2 .news-title {
+    font-size: 29px;
+    line-height: 44px;
+    margin-top: 30px;
+}
+
+.row-2 .news-text {
+    font-size: 29px;
+    line-height: 45px;
+    color: #000000;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    height: 97px;
+    background-color: #4e8849;
+    color: #ffffff;
+    font-size: 29px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 97px;
+}
+
+/* ===== TRANG LIÊN HỆ ===== */
+.contact-form {
+    width: 700px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px 12px;
+    font-family: inherit;
+    font-size: 18px;
+    border: 1px solid #999999;
+    outline: none;
+}
+
+.form-control:focus {
+    border-color: #4e8849;
+    box-shadow: 0 0 4px #4e8849;
+}
+
+.form-control.invalid {
+    border-color: #F00;
+}
+
+.error {
+    display: block;
+    min-height: 22px;
+    margin-top: 4px;
+    color: #F00;
+    font-size: 16px;
+}
+
+.btn {
+    padding: 12px 40px;
+    background-color: #4e8849;
+    color: #ffffff;
+    border: none;
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #203181;
+}
+
+.success {
+    color: #2e7d32;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 16px;
+}
+
+/* Cột trái hàng 2: chữ xuống dòng giống thiết kế */
+.row-2 > div:first-child .news-title,
+.row-2 > div:first-child .news-text {
+    max-width: 600px;
+    padding-left: 5px;
+}

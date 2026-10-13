@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinamilk - PHAM VAN TUYEN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- ===== HEADER ===== -->
+        <header>
+            <a href="index.html" class="logo"><img src="img/logo.png" alt="Vinamilk"></a>
+
+            <nav class="menu">
+                <ul>
+                    <li><a href="index.html" class="active">Trang chủ</a></li>
+                    <li><a href="#">Tin tức</a></li>
+                    <li><a href="#">Thể thao</a></li>
+                    <li><a href="#">Văn hóa</a></li>
+                    <li><a href="#">Xã hội</a></li>
+                    <li><a href="lienhe.html">Liên hệ</a></li>
+                </ul>
+            </nav>
+
+            <!-- Form tìm kiếm có validate -->
+            <form class="search" name="frmSearch" action="#" onsubmit="return validateSearch()">
+                <input type="text" id="keyword" name="keyword" placeholder="Nhập từ khóa...">
+                <button type="submit">TÌM</button>
+            </form>
+        </header>
+
+        <!-- ===== BANNER ===== -->
+        <div class="banner">
+            <img src="img/banner.png" alt="Vinamilk Green Farm">
+        </div>
+
+        <!-- ===== CONTENT ===== -->
+        <section class="content">
+            <h2>HOẠT ĐỘNG NỔI BẬT</h2>
+
+            <div class="box">
+                <div class="row row-1">
+                    <a href="#"><img src="img/khuyenmai.jpg" alt="Khuyến mãi ADM"></a>
+                    <div>
+                        <h3 class="news-title">
+                            <a href="#">Chương trình khuyến dùng Sữa dinh dưỡng Vinamilk ADM mua 8 tặng 1</a>
+                        </h3>
+                        <p class="news-text">
+                            Đơn vị tổ chức: Công ty Cổ phần Sữa Việt Nam<br>
+                            1. Tên chương trình:<br>
+                            Chương trình khuyến dùng sữa dinh dưỡng
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row row-2">
+                    <div>
+                        <a href="#"><img src="img/susu.jpg" alt="SuSu"></a>
+                        <h3 class="news-title">
+                            <a href="#">CTKD Susu sưu tầm thẻ đổi lồng đèn/ hộp bút POP-IT, thẻ điện thoại và...</a>
+                        </h3>
+                        <p class="news-text">
+                            Chương trình khuyến mại: “Khuyến dùng SuSu sưu tầm thẻ đổi lồng đèn/ hộp bút pop-it, thẻ điện thoại và bộ túi ngủ đi học”
+                        </p>
+                    </div>
+                    <div>
+                        <a href="#"><img src="img/hero.jpg" alt="Hero"></a>
+                        <h3 class="news-title">
+                            <a href="#">Chương trình khuyến mãi hấp dẫn “Nạp Hero – chào hè rộn ràng, săn quà...</a>
+                        </h3>
+                        <p class="news-text">
+                            I. THÔNG TIN CHƯƠNG TRÌNH:<br>
+                            1. Tên chương trình: NẠP HERO – CHÀO HÈ RỘN RÀNG, SĂN QUÀ HẤP DẪN”<br>
+                            2. Đối tượng tham gia:...
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FOOTER ===== -->
+        <footer>PHAM VAN TUYEN</footer>
+    </div>
+
+    <script>
+        // Validate form tìm kiếm
+        function validateSearch() {
+            var input = document.getElementById("keyword");
+            var keyword = input.value.trim();
+
+            if (keyword === "") {
+                alert("Vui lòng nhập từ khóa cần tìm!");
+                input.focus();
+                return false;
+            }
+            if (keyword.length < 2) {
+                alert("Từ khóa phải có ít nhất 2 ký tự!");
+                input.focus();
+                return false;
+            }
+            alert("Đang tìm kiếm: " + keyword);
+            return true;
+        }
+    </script>
+</body>
+</html>
